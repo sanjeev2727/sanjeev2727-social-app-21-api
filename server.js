@@ -8,6 +8,7 @@ const app = express();
 //routes
 const userRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const postRouter = require('./routes/posts');
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ mongoose.connect(process.env.DB_CONN_URL, {
 
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
+app.use("/api/posts", postRouter);
 
 app.listen(process.env.PORT, () => {
     console.log("Server is running at :", process.env.PORT);
